@@ -10,13 +10,12 @@
     if(isset($_SESSION["loggedIn"])){
         if(!$_SESSION["loggedIn"]){
             header("Location: index.html");
-            exit(); // Asegúrate de detener la ejecución después de la redirección
+            
         }  
     }
     else{
         header("Location: index.html");
-        exit(); // Asegúrate de detener la ejecución después de la redirección
-    }
+        }
 ?>
 
 <!DOCTYPE html>
