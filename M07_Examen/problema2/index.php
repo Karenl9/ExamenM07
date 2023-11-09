@@ -21,15 +21,14 @@
         */
     ?>
 
-    <a href="gestionar.php"> Acceptar cookie</a> 
-    <a href="gestionar.php"> Denegar cookies</a>
+    <a href="gestionar.php?estat=ok"> Acceptar cookie</a> 
+    <a href="gestionar.php?estat=denny"> Denegar cookies</a>
 
     <h3> Valor actual de les cookies </h3>
 
     <br>
     <br>
     <?php
- 
         /*
             RA4.5 - MOSTRAR COOKIE PER PANTALLA  (2 punts)
             DESC: Controlar si la cookie té valor i es mostra el valor per pantalla. 
@@ -41,7 +40,11 @@
                 echo "No hi ha valor per a la cookie"
             }
         */
-
+        if (isset($_COOKIE['name'])) {
+            echo "El valor de la cookie és: " . $_COOKIE['name'];
+        } else {
+            echo "No hi ha valor per a la cookie";
+        }
     ?>
         
 

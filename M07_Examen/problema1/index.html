@@ -17,18 +17,18 @@
         3- s'ha de completar el codi següent:
     -->
 
-    <form >
+    <form method="post" action="validar.php">
         <div>
-            <label>Usuari</label>
-            <input type="text">
+            <label form="name">Usuari</label>
+            <input type="text" name="name" required>
         </div>
         <div>
-            <label>Edat</label>
-            <input type="number">
+            <label form="edat">Edat</label>
+            <input type="number" name="edat" required>
         </div>
         <div>
-            <label>Accepto les condicions</label>
-            <input type="checkbox">
+            <label form="active">Accepto les condicions</label>
+            <input type="checkbox" name="active" value="1">
         </div>
 
         <input type="submit" value="Enviar">

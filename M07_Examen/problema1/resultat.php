@@ -5,6 +5,18 @@
         Controlar si el login és true o false.
         En cas de ser false, redireccionam a la pantalla index.html
     */
+    session_start();
+
+    if(isset($_SESSION["loggedIn"])){
+        if(!$_SESSION["loggedIn"]){
+            header("Location: index.html");
+            exit(); // Asegúrate de detener la ejecución después de la redirección
+        }  
+    }
+    else{
+        header("Location: index.html");
+        exit(); // Asegúrate de detener la ejecución después de la redirección
+    }
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +28,7 @@
 </head>
 <body>
 
-    <h1>Hola, nom_Sessio  </h1>    
+    <!-- <h1>Hola,  echo $_SESSION["llistaUsusaris"]; ?></h1>   -->
 
     <?php
         
@@ -30,6 +42,13 @@
             "No has acceptat les condicions d'ús"
         */
 
+        echo "<h1>Hola " . $_SESSION["llistaUsusaris"] ."</h1>";
+
+        if ($_SESSION['loggedIn'] == true){
+            echo "Has acceptat les condicions d'ús";
+        } else {
+            echo "No has acceptat les condicions d'ús";
+        }
     ?>
 
     <br>
@@ -37,3 +56,4 @@
     <a href="index.html">Tornar</a>
 </body>
 </html>
+

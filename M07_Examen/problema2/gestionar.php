@@ -16,20 +16,37 @@
         DESC: Obtenir la variable "estat" pel mètode GET
     */
 
-    /*
-        RA4.6 - CREAR COOKIE (2 punts)
-        RA4.7 - DESTRUIR LA COOKIE (1 punt)
+    if (isset($_GET['estat'])) {
+        $estat = $_GET['estat'];
 
-        DESC: 
-             Si l'estat és 'ok'{
-                 crear una cookie 'name' amb el vostre nom i una durada de 2 minuts.
-                 mostrar per pantalla "La cookie s'ha guardat";
-             }
-             Si l'estat és 'denny'{
-                 eliminar la cookie.
-                 mostrar per pantalla "La cookie s'ha eliminat";
-             } 
-    */
+        /*
+            RA4.6 - CREAR COOKIE (2 punts)
+            RA4.7 - DESTRUIR LA COOKIE (1 punt)
+
+            DESC: 
+                Si l'estat és 'ok'{
+                    crear una cookie 'name' amb el vostre nom i una durada de 2 minuts.
+                    mostrar per pantalla "La cookie s'ha guardat";
+                }
+                Si l'estat és 'denny'{
+                    eliminar la cookie.
+                    mostrar per pantalla "La cookie s'ha eliminat";
+                } 
+        */
+
+        if ($estat === 'ok') {
+            $nom = 'Karen'; 
+            setcookie('name', $nom, time() + (2 * 60)); // Cookie con tu nombre por 2 minutos
+            echo "La cookie s'ha guardat";
+        } elseif ($estat === 'denny') {
+            setcookie('name', 'Karen', time() - 1); // Eliminar la cookie
+            echo "La cookie s'ha eliminat";
+        } else {
+            echo "Estat no reconegut";
+        }
+    } else {
+        echo "No s'ha proporcionat cap estat.";
+    }
 
     ?>
     <br>
@@ -38,4 +55,3 @@
 
 </body>
 </html>
-
